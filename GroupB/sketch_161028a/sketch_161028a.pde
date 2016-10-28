@@ -15,4 +15,7 @@ void draw() {
   line(90, 130, 200, 250);
   stroke(#DDE340);
   line(310, 130, 200, 250);
+  print ( " RED = ", red(get(mouseX, mouseY)));
+  print ( " GREEN  = ", green(get(mouseX, mouseY)));
+  println ( " BLUE = ", blue(get(mouseX, mouseY)));
 }
