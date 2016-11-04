@@ -21,20 +21,9 @@ void draw() {
     y = height/2;
   }
   ellipse(x, y, 5, 5);
-  if (keyPressed == true) {
-    if (key == CODED) {
-      if (keyCode == UP) {
-        y = y-1;
-      }
-      if (keyCode == DOWN) {
-        y = y+1;
-      }
-      if (keyCode == RIGHT) {
-        x = x+1;
-      }
-      if (keyCode == LEFT) {
-        x = x-1;
-      }
-    }
+  
+  if(x>244 && x<264 && y>0 && y<17) {
+    text(" I am free ", width/2,height/2);
+    noLoop();
   }
 }
