@@ -30,10 +30,14 @@ void draw() {
   ballX = ballX + speedX;
   ballY = ballY + speedY;
   
-  // Bouncing the ball of the X walls
+  // Bouncing the ball of the X & Y walls
   if (ballX < ballR || ballX > width-ballR) {
     speedX = speedX * -1;
   }
+  if (ballY < ballR || ballY > height-ballR) {
+     speedY = speedY * -1;
+  }
   
-  
+
+
 }
