@@ -45,4 +45,5 @@ void draw() {
   if (ballY > bat2Y && ballY < bat2Y+batH && ballX+ballR > bat2X) {
    speedX = speedX * -1; 
   }
+  // Bounce the ball of the Left bat --- simple version
 }
