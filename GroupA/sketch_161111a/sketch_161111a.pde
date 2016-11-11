@@ -12,32 +12,37 @@ int speedX = 3;
 int speedY = 1;
 
 void setup() {
-  size(400,400);
+  size(400, 400);
   ballX = width/2;
   ballY = height/2;
 }
 
 void draw() {
   background(0);
-  
+
   //Displaying the bats
   bat1Y=mouseY;
-  rect(bat1X,bat1Y,batW,batH);
-  rect(bat2X,bat2Y,batW,batH);
-  ellipse(ballX,ballY,ballD,ballD);
-  
+  // Limit left bat - Bottom, Top is fixed by mouse
+  if (bat1Y > height-batH) {
+    bat1Y = height-batH;
+  }
+  rect(bat1X, bat1Y, batW, batH);
+  rect(bat2X, bat2Y, batW, batH);
+  ellipse(ballX, ballY, ballD, ballD);
+
   // Moving the ball
   ballX = ballX + speedX;
   ballY = ballY + speedY;
-  
+
   // Bouncing the ball of the X & Y walls
   if (ballX < ballR || ballX > width-ballR) {
     speedX = speedX * -1;
   }
   if (ballY < ballR || ballY > height-ballR) {
-     speedY = speedY * -1;
+    speedY = speedY * -1;
   }
-  
-
-
+  // Bounce the ball of the Right bat --- simple version
+  if (ballY > bat2Y && ballY < bat2Y+batH && ballX+ballR > bat2X) {
+   speedX = speedX * -1; 
+  }
 }
