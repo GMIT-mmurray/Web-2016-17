@@ -21,18 +21,34 @@ void draw() {
     print(" On the Left");
     distance = dist(ballX, ballY, batX, ballY);
     println(" Dist = ", distance);
+    if (distance < ballR){
+      textSize(45);
+      text("Hit ",200,100);
+    }
   } else if (ballX > batX+batW) {
     print(" On the Right");
     distance = dist(ballX, ballY, batX+batW, ballY);
     println(" Dist = ", distance);
+    if (distance < ballR){
+      textSize(45);
+      text("Hit ",200,100);
+    }
   }else if (ballY < batY) {
     print(" On the Top");
     distance = dist(ballX, ballY, ballX, batY);
     println(" Dist = ", distance);
+    if (distance < ballR){
+      textSize(45);
+      text("Hit ",200,100);
+    }
   }else if (ballY > batY+batH) {
     print(" On the Bottom");
     distance = dist(ballX, ballY, ballX, batY+batH);
     println(" Dist = ", distance);
+    if (distance < ballR){
+      textSize(45);
+      text("Hit ",200,100);
+    }
   }
 
   fill(0);
