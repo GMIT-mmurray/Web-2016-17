@@ -42,6 +42,7 @@ void draw() {
   // bouncing ball off left and right walls
   if (ballX > width-ballR || ballX < ballR) {
     speedX = speedX*-1;
+    // updat score and reset the ball to center
   }
   // bouncing ball off top and bottom walls
   if (ballY > height-ballR || ballY < ballR) {
