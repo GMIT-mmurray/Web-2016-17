@@ -15,51 +15,57 @@ boolean onBottom = false;
 
 
 void setup() {
-  size(600,600);
+  size(600, 600);
 }
 
 void draw() {
   background(255);
+  fill(189);
+  rect(batX,batY,batW,batH);
+  
+  onLeft = false;
+  onRight = false;
+  onTop = false;
+  onBottom = false;
   ballX = mouseX;
   ballY = mouseY;
+  fill(255,0,0);
+  ellipse(ballX,ballY,ballD,ballD);
   
   float testX = ballX;
   float testY = ballY;
-  
+
   if (ballX < batX) {
-  // On the left 
-  testX = batX;
-  onLeft = true;
-  
+    // On the left 
+    testX = batX;
+    onLeft = true;
   } else if (ballX > batX+batW) {
-   // ON the right
-   testX = batX+batW;
-   onRight = true; 
- }
-  
+    // ON the right
+    testX = batX+batW;
+    onRight = true;
+  }
+
   if (ballY < batY) {
     // On the top
     testY = batY;
     onTop = true;
-    
   } else if (ballY > batY+batH) {
     // on the bottom
     testY = batY+batH;
     onBottom = true;
   }
-
- // Calculate the distance 
-  float distance = dist(ballX,ballY,testX,testY);
-  if (distance < ballR && onLeft == true) {
-    text("on the left ", 0,300);
+  // Calculate the distance 
+  float distance = dist(ballX, ballY, testX, testY);
+  if (distance <= ballR && onLeft == true) {
+    text("on the left ", 0, 300);
   }
-  if (distance < ballR && onRight == true) {
-    text("on the Right ", 500,300);
+  if (distance <= ballR && onRight == true) {
+    text("on the Right ", 500, 300);
   }
-    if (distance < ballR && onTop == true) {
-    text("on the Top ", 300,30);
+  if (distance <= ballR && onTop == true) {
+    text("on the Top ", 300, 30);
   }
-    if (distance < ballR && onBottom == true) {
-    text("on the left ", 300,500);
+  if (distance <= ballR && onBottom == true) {
+    text("on the Bottom ", 300, 500);
   }
 } 
