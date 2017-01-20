@@ -43,6 +43,7 @@ void setup() {
   pinMode(buttonPin2, INPUT);
   pinMode(buttonPin3, INPUT);
   pinMode(buttonPin4, INPUT);
+  Serial.begin(115200);
 }
 
 void loop() {
@@ -56,8 +57,10 @@ void loop() {
   if (buttonState2 == HIGH && buttonState3 == HIGH && buttonState4 == HIGH ) {
     // turn LED on:
     digitalWrite(ledPin, HIGH);
+    Serial.println("LED IS ON");
   } else {
     // turn LED off:
     digitalWrite(ledPin, LOW);
+    Serial.println("LED IS OFF");
   }
 }
