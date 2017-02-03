@@ -2,7 +2,7 @@
 
 // Function Prototype
 void blinkLED(int pin, long t);
-long r;
+long r;  // This is the random number variable
 void setup() {
   // use a for loop to initialize each pin as an output:
   for (int thisPin = 2; thisPin < 10; thisPin++) {
@@ -12,12 +12,14 @@ void setup() {
 
 void loop() {
   // loop from the lowest pin to the highest:
-   r = random(1000, 3001);
+  r = random(1000, 3001);
   for (int thisPin = 2; thisPin < 10; thisPin++) {
     // turn the pin on/off:
     //   long r = random(1000, 3001);
     //   blinkLED(thisPin, random(1000, 3001));
-    blinkLED(thisPin, r);
+    if (thisPin % 2 == 0) {
+      blinkLED(thisPin, r);
+    }
   }
 
   // loop from the highest pin to the lowest:
@@ -26,7 +28,9 @@ void loop() {
     // turn the pin on/off:
     //  long r = random(1000, 3001);
     //  blinkLED(thisPin, random(1000, 3001));
-    blinkLED(thisPin, r);
+   if (thisPin % 2 == 1) {
+      blinkLED(thisPin, r);
+    }
   }
 }
 
