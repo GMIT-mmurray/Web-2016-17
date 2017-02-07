@@ -1,7 +1,8 @@
 
 int timer = 1000;           // The higher the number, the slower the timing.
-int ledPins[] = {3,7,4,2,6,5};
-int pinCount = 6;
+int ledPins[] =    {3,   7,   4,   2,   6,  5,   8, 10, 12,   11,  9, 13};
+int blinkRates[] = {500,1000,2000,2000,200,5000,300,600,3000,4000,100,500};
+int pinCount = 12;
 
 void setup() {
   // use a for loop to initialize each pin as an output:
@@ -15,7 +16,7 @@ void loop() {
   for (int thisPin = 0; thisPin < pinCount; thisPin++) {
     // turn the pin on:
     digitalWrite(ledPins[thisPin], HIGH);
-    delay(timer);
+    delay(blinkRates[thisPin]);
     // turn the pin off:
     digitalWrite(ledPins[thisPin], LOW);
   }
@@ -24,7 +25,7 @@ void loop() {
   for (int thisPin = pinCount-1; thisPin >= 0; thisPin--) {
     // turn the pin on:
     digitalWrite(ledPins[thisPin], HIGH);
-    delay(timer);
+    delay(blinkRates[thisPin]);
     // turn the pin off:
     digitalWrite(ledPins[thisPin], LOW);
   }
