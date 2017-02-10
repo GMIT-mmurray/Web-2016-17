@@ -17,9 +17,9 @@ This example code is in the public domain.
  http://www.arduino.cc/en/Tutorial/ForLoop
  */
 
-int timer = 100;           // The higher the number, the slower the timing.
-int pinNumber[]={4,7,3,6,5,2};
-int pinCount = 6;
+int timer = 1000;           // The higher the number, the slower the timing.
+int pinNumber[]={4,8,7,10,3,9,6,5,11,2};
+int pinCount = 10;
 
 void setup() {
   // use a for loop to initialize each pin as an output:
@@ -32,18 +32,20 @@ void loop() {
   // loop from the lowest pin to the highest:
   for (int thisPin = 0; thisPin < pinCount; thisPin++) {
     // turn the pin on:
-    digitalWrite(pinNumber[thisPin], HIGH);
-    delay(timer);
-    // turn the pin off:
-    digitalWrite(pinNumber[thisPin], LOW);
+   blinkLED(pinNumber[thisPin],timer);
   }
 
   // loop from the highest pin to the lowest:
   for (int thisPin = pinCount-1; thisPin >= 0; thisPin--) {
     // turn the pin on:
-    digitalWrite(pinNumber[thisPin], HIGH);
-    delay(timer);
-    // turn the pin off:
-    digitalWrite(pinNumber[thisPin], LOW);
+   blinkLED(pinNumber[thisPin],timer);
   }
 }
+
+void blinkLED(int pin, long t) {
+  digitalWrite(pin, HIGH);
+  delay(t);
+  // turn the pin off:
+  digitalWrite(pin, LOW);
+}
+
