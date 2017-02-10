@@ -18,7 +18,8 @@ This example code is in the public domain.
  */
 
 int timer = 1000;           // The higher the number, the slower the timing.
-int pinNumber[]={4,8,7,10,3,9,6,5,11,2};
+int pinNumber[]={ 4,    8,    7,   10,  3,   9,    6,    5,   11,   2};
+int pinTime[] = {1000, 2000, 500, 200, 500, 1000, 1500, 3000, 100, 400};
 int pinCount = 10;
 
 void setup() {
@@ -32,13 +33,13 @@ void loop() {
   // loop from the lowest pin to the highest:
   for (int thisPin = 0; thisPin < pinCount; thisPin++) {
     // turn the pin on:
-   blinkLED(pinNumber[thisPin],timer);
+   blinkLED(pinNumber[thisPin],pinTime[thisPin]);
   }
 
   // loop from the highest pin to the lowest:
   for (int thisPin = pinCount-1; thisPin >= 0; thisPin--) {
     // turn the pin on:
-   blinkLED(pinNumber[thisPin],timer);
+   blinkLED(pinNumber[thisPin],pinTime[thisPin]);
   }
 }
 
