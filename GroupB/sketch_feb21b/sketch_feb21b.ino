@@ -37,7 +37,7 @@ void loop() {
       // wend from off to on:
       buttonPushCounter++;
       Serial.println("on");
-      Serial.print("number of button pushes:  ");
+      Serial.print("number of button pushes on pin 2:  ");
       Serial.println(buttonPushCounter);
     } else {
       // if the current state is LOW then the button
@@ -54,8 +54,8 @@ void loop() {
       // wend from off to on:
       buttonPushCounter1++;
       Serial.println("off");
-      Serial.print("number of button pushes:  ");
-      Serial.println(buttonPushCounter);
+      Serial.print("number of button pushes on pin 3:  ");
+      Serial.println(buttonPushCounter1);
     } else {
       // if the current state is LOW then the button
       // wend from on to off:
