@@ -1,4 +1,3 @@
-
 int pinNumber[] = {5,  10,  2,    7,   8,   3,    9,    6,   4,    11};
 int timeBlink[] = {200, 2000, 1000, 200, 500, 3000, 1000, 100, 1000, 1000};
 const int sensorMin = 0;      // sensor minimum, discovered through experiment
@@ -72,5 +71,3 @@ void loop() {
       }
   }
 }
-
-
