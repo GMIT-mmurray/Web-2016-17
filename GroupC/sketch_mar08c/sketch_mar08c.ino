@@ -13,12 +13,16 @@ void loop() {
   // read the sensor:
   int sensorReading = analogRead(A0);
   int range = map(sensorReading, 0, 600, 0, 9);
-  blink(pinNumbers[range], timeBlink[range]);
+  if (range < 10) {
+    blink(pinNumbers[range], timeBlink[range]);
+  }
+ delay(5);
 }
 void blink(int pin, int timeDelay) {
   digitalWrite(pin, HIGH);
   delay(timeDelay);
   digitalWrite(pin, LOW);
+  delay(timeDelay);
 }
 
 
