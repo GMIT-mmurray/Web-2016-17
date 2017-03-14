@@ -10,7 +10,7 @@ void loop() {
   if (Serial.available() > 0) {
     rawValue = getCharacter();
     if (rawValue != -1) {
-    Serial.print("Value Squares = ");
+    Serial.print("Value Squared = ");
     Serial.println(rawValue);
     }
     else {
