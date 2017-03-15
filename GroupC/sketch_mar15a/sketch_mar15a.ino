@@ -1,3 +1,5 @@
+int getCharacters();
+int checkAndConvert(int v);
 void setup() {
   // put your setup code here, to run once:
  Serial.begin(9600);
@@ -11,6 +13,8 @@ void loop() {
     if (sValue != -1) {
       Serial.print(" Squared Value ");
       Serial.println(sValue);
+ //     Serial.write(sValue);
+ //     Serial.write(13);
     }
     else {
       Serial.println(" Not a valid character ");
