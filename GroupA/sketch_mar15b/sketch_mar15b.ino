@@ -1,6 +1,7 @@
+float getAnalogAverage();
 void setup() {
   // put your setup code here, to run once:
-Serial.begin(9600);
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -13,6 +14,6 @@ float getAnalogAverage() {
   float val2 = analogRead(A1);
   float val3 = analogRead(A2);
   float val4 = analogRead(A3);
-  return ((val1+val2+val3+val4)/4);
+  return ((val1 + val2 + val3 + val4) / 4);
 }
 
