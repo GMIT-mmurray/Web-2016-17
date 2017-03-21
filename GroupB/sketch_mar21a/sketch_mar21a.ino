@@ -70,8 +70,12 @@ int getCharacter() {
 }
 int checkAndConvert(int d) {
   int tempD = -1;
-  if (d > 47 && d < 56) {
+  if (d > 47 && d < 58) {       // numbers 0 .... 9
     tempD = d - 48;
+  }else if (d > 64 && d < 71) { // A ....F
+    tempD = d - 55;
+  }else if (d > 96 && d < 103){ // a ....f
+    tempD = d - 87;
   }
   return tempD;
 }
