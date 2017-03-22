@@ -4,6 +4,10 @@ int checkAndConvert(int v);
 void setLEDS(int b3, int b2, int b1, int b0);
 
 void setup() {
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -49,13 +53,18 @@ int getCharacter() {
 
 int checkAndConvert(int v) {
   int tempV = -1;
-  if (v > 47 && v < 56) {
+  if (v > 47 && v < 58) {
     tempV = v - 48;
+  } else if (v > 64 && v < 71) {
+    tempV = v - 55;
+  } else if (v > 96 && v < 103) {
+    tempV = v - 87;
   }
   return (tempV);
 }
 void setLEDS(int b3, int b2, int b1, int b0) {
-  digitalWrite(11, b0);
-  digitalWrite(12, b1);
-  digitalWrite(13, b2);
+  digitalWrite(10, b0);
+  digitalWrite(11, b1);
+  digitalWrite(12, b2);
+  digitalWrite(13, b3);
 }
