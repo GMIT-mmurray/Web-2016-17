@@ -73,14 +73,15 @@ int getCharacters() {
 }
 int checkAndConvert(int v) {
   int tempV = -1;
-  if (v > 47 && v < 56) {
+  if (v > 47 && v < 58) {  // number 0 .... 9
     tempV = v - 0x30;
   }
   return (tempV);
 }
 
-void setLEDS(int b2, int b1, int b0) {
-  digitalWrite(11, b0);
-  digitalWrite(12, b1);
-  digitalWrite(13, b2);
+void setLEDS(int b3,int b2, int b1, int b0) {
+  digitalWrite(10, b0);
+  digitalWrite(11, b1);
+  digitalWrite(12, b2);
+  digitalWrite(13, b3);
 }
