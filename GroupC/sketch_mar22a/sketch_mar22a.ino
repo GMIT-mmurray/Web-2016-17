@@ -75,6 +75,10 @@ int checkAndConvert(int v) {
   int tempV = -1;
   if (v > 47 && v < 58) {  // number 0 .... 9
     tempV = v - 0x30;
+  } else if (v > 0x40 && v < 71) { // A .... F
+    tempV = v - 55;
+  } else if (v > 96 && v < 103) {
+    tempV = v - 87;
   }
   return (tempV);
 }
