@@ -1,8 +1,8 @@
 void displayBinary(int Value);
 void setLEDS(int b3, int b2, int b1, int b0);
 int myDelay();
-void countUP();
-void countDOWN();
+void countUP(int number);
+void countDOWN(int number);
 // this constant won't change:
 const int  buttonPin = 2;    // the pin that the pushbutton is attached to
 const int  buttonPin1 = 3;    // the pin that the pushbutton is attached to
@@ -40,7 +40,7 @@ void loop() {
     if (buttonState == HIGH) {
       // if the current state is HIGH then the button
       // went from low to high:
-      countUP();
+      countUP(9);
     }
   }
 
@@ -49,7 +49,7 @@ void loop() {
     if (buttonState1 == LOW) {
       // if the current state is LOW then the button
       // went from HIGH to LOW:
-      countDOWN();
+      countDOWN(9);
     }
   }
   // save the current state as the last state,
@@ -92,9 +92,9 @@ int myDelay() {
   val = map(val, 0, 1023, 1000, 5000);
   return (val);
 }
-void countUP() {
+void countUP(int number) {
   buttonPushCounter = 0;
-  for (int i = 0; i < 16; i++) {
+  for (int i = 0; i < number+1; i++) {
     Serial.print("Counter value =  ");
     Serial.println(buttonPushCounter);
     displayBinary(buttonPushCounter); // outputs binary to LEDS
@@ -103,9 +103,9 @@ void countUP() {
   }
 }
 
-void countDOWN() {
-  buttonPushCounter = 15;
-  for (int i = 0; i < 16; i++) {
+void countDOWN(int number) {
+  buttonPushCounter = number;
+  for (int i = 0; i < number+1; i++) {
     Serial.print("Counter value =  ");
     Serial.println(buttonPushCounter);
     displayBinary(buttonPushCounter); // outputs binary to LEDS
