@@ -39,8 +39,8 @@ void loop() {
     if (buttonState == HIGH) {
       // if the current state is HIGH then the button
       // wend from off to on:
-      buttonPushCounter = 0;
-      for (int i = 0; i < 16; i++) {
+      buttonPushCounter = -1;
+      for (int i = -1; i < 15; i++) {
         buttonPushCounter++;
         Serial.print("Incrementing Counter:  ");
         Serial.println(buttonPushCounter);
