@@ -38,6 +38,7 @@ void loop() {
     if (buttonState == HIGH) {
       // if the current state is HIGH then the button
       // wend from off to on:
+      buttonPushCounter = 0;
       for (int i = 0; i < 16; i++) {
         buttonPushCounter++;
         Serial.print("Incrementing Counter:  ");
@@ -56,12 +57,14 @@ void loop() {
     if (buttonState1 == LOW) {
       // if the current state is HIGH then the button
       // wend from off to on:
-      buttonPushCounter--;
-      if (buttonPushCounter < 0) {
-        buttonPushCounter = 0;
+      buttonPushCounter = 16;
+      for (int i = 0; i < 16; i++) {
+        buttonPushCounter--;
+        Serial.print("Decrementing Counter:  ");
+        Serial.println(buttonPushCounter);
+        displayBinary(buttonPushCounter);  // Display the binary value
+        delay(1000);
       }
-      Serial.print("Decrementing on pin 3:  ");
-      Serial.println(buttonPushCounter);
     }
     // Delay a little bit to avoid bouncing
     delay(50);
