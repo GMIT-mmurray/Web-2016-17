@@ -1,7 +1,8 @@
 void displayBinary(int Value);
 void setLEDS(int b3, int b2, int b1, int b0);
 int myDelay();
-
+void countUP();
+void countDOWN();
 // this constant won't change:
 const int  buttonPin = 2;    // the pin that the pushbutton is attached to
 const int  buttonPin1 = 3;    // the pin that the pushbutton is attached to
@@ -39,14 +40,7 @@ void loop() {
     if (buttonState == HIGH) {
       // if the current state is HIGH then the button
       // went from low to high:
-      buttonPushCounter = 0;
-      for (int i = 0; i < 16; i++) {
-        Serial.print("Counter value =  ");
-        Serial.println(buttonPushCounter);
-        displayBinary(buttonPushCounter); // outputs binary to LEDS
-        delay(myDelay());
-        buttonPushCounter++;
-      }
+      countUP();
     }
   }
 
@@ -55,14 +49,7 @@ void loop() {
     if (buttonState1 == LOW) {
       // if the current state is LOW then the button
       // went from HIGH to LOW:
-      buttonPushCounter = 15;
-      for (int i = 0; i < 16; i++) {
-        Serial.print("Counter value =  ");
-        Serial.println(buttonPushCounter);
-        displayBinary(buttonPushCounter); // outputs binary to LEDS
-        delay(myDelay());
-        buttonPushCounter--;
-      }
+      countDOWN();
     }
   }
   // save the current state as the last state,
@@ -101,9 +88,29 @@ void setLEDS(int b3, int b2, int b1, int b0) {
 }
 
 int myDelay() {
-int val = analogRead(A0);
- val = map(val,0,1023,1000,5000);
- return (val);
+  int val = analogRead(A0);
+  val = map(val, 0, 1023, 1000, 5000);
+  return (val);
+}
+void countUP() {
+  buttonPushCounter = 0;
+  for (int i = 0; i < 16; i++) {
+    Serial.print("Counter value =  ");
+    Serial.println(buttonPushCounter);
+    displayBinary(buttonPushCounter); // outputs binary to LEDS
+    delay(myDelay());
+    buttonPushCounter++;
+  }
 }
 
+void countDOWN() {
+  buttonPushCounter = 15;
+  for (int i = 0; i < 16; i++) {
+    Serial.print("Counter value =  ");
+    Serial.println(buttonPushCounter);
+    displayBinary(buttonPushCounter); // outputs binary to LEDS
+    delay(myDelay());
+    buttonPushCounter--;
+  }
+}
 
