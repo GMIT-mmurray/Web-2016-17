@@ -37,12 +37,13 @@ void loop() {
     if (buttonState == HIGH) {
       // if the current state is HIGH then the button
       // went from low to high:
-      buttonPushCounter++;
-      if (buttonPushCounter > 15) {
-        buttonPushCounter = 15;
+      buttonPushCounter = 0;
+      for (int i = 0; i < 16; i++) {
+        Serial.print("Counter value =  ");
+        Serial.println(buttonPushCounter);
+        displayBinary(buttonPushCounter); // outputs binary to LEDS
+        buttonPushCounter++;
       }
-      Serial.print("Counter Incremented by Pin 2: value =  ");
-      Serial.println(buttonPushCounter);
     }
     // Delay a little bit to avoid bouncing
     delay(50);
@@ -69,7 +70,7 @@ void loop() {
   lastButtonState = buttonState;
   lastButtonState1 = buttonState1;
 
-  displayBinary(buttonPushCounter); // outputs binary to LEDS
+
 }
 
 void displayBinary(int Value) {
@@ -100,4 +101,4 @@ void setLEDS(int b3, int b2, int b1, int b0) {
   digitalWrite(13, b3);
 }
 
-   
+
