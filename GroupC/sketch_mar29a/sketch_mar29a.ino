@@ -1,5 +1,6 @@
 void displayBinary (int rawValue);
 void setLEDS(int b3, int b2, int b1, int b0);
+int myDelay();
 
 // this constant won't change:
 const int  buttonPin = 2;    // the pin that the pushbutton is attached to+
@@ -44,7 +45,7 @@ void loop() {
         Serial.print("Incrementing Counter:  ");
         Serial.println(buttonPushCounter);
         displayBinary(buttonPushCounter);  // Display the binary value
-        delay(1000);
+        delay(myDelay());
       }
 
 
@@ -63,7 +64,7 @@ void loop() {
         Serial.print("Decrementing Counter:  ");
         Serial.println(buttonPushCounter);
         displayBinary(buttonPushCounter);  // Display the binary value
-        delay(1000);
+        delay(myDelay());
       }
     }
     // Delay a little bit to avoid bouncing
@@ -121,3 +122,10 @@ void setLEDS(int b3, int b2, int b1, int b0) {
   digitalWrite(11, b1);
   digitalWrite(10, b0);
 }
+
+int myDelay() {
+  int val = analogRead(A0);
+  val = map(val, 0, 1023, 1000, 5000);
+  return (val);
+}
+
