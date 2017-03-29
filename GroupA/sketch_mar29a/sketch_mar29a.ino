@@ -100,6 +100,4 @@ void setLEDS(int b3, int b2, int b1, int b0) {
   digitalWrite(13, b3);
 }
 
-    Contact GitHub API Training Shop Blog About 
-
-    © 2017 GitHub, Inc. Terms Privacy Security
+   
