@@ -69,7 +69,7 @@ void loop() {
   lastButtonState = buttonState;
   lastButtonState1 = buttonState1;
 
-  displayBinary(buttonPushCounter);
+  displayBinary(buttonPushCounter); // outputs binary to LEDS
 }
 
 void displayBinary(int Value) {
